@@ -38,7 +38,8 @@ Go to the project directory
 - [Lab 5](#lab-5)
 - [Lab 6](#lab-6)
 
-## Lab 1 
+## Lab 1
+### Source code
 [Link](https://github.com/KPI-repos/java-software-course/tree/main/lab_1)
 ### How to use 
 In the method `main` set matrices and run the project
