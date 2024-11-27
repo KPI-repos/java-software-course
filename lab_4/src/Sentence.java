@@ -6,6 +6,7 @@ import java.util.List;
  */
 public class Sentence {
     private List<Word> words;
+    private List<Punctuation> punctuations;
     private String originalSentence;
 
     /**
@@ -15,16 +16,16 @@ public class Sentence {
      */
     public Sentence(String sentence) {
         this.words = new ArrayList<>();
+        this.punctuations = new ArrayList<>();
         this.originalSentence = sentence.trim();
 
         // Normalize whitespace and split into parts
-        sentence = sentence.replaceAll("\\s+", " ").trim();
-
-        // Extract valid words (only alphabetic words) and store them
-        String[] parts = sentence.split("[\\s,]+");
+        String[] parts = sentence.split("(?=[,.!?])|\\s+");
         for (String part : parts) {
             if (part.matches("[а-яА-ЯїЇєЄґҐіІ]+")) { // Only alphabetic words
                 words.add(new Word(part));
+            } else if (part.matches("[,.!?]")) { // Punctuation marks
+                punctuations.add(new Punctuation(part.charAt(0)));
             }
         }
     }
@@ -36,6 +37,15 @@ public class Sentence {
      */
     public List<Word> getWords() {
         return words;
+    }
+
+    /**
+     * Returns the list of punctuation marks in the sentence.
+     *
+     * @return a list of Punctuation objects
+     */
+    public List<Punctuation> getPunctuations() {
+        return punctuations;
     }
 
     /**

@@ -50,18 +50,22 @@ class Gift {
         sweets.sort((s1, s2) -> Double.compare(s1.getPrice(), s2.getPrice()));
     }
 
+    
     /**
-     * Finds sweets within a specified price range.
+     * Finds sweets within a specified cocoa percentage range.
      *
-     * @param minPrice the minimum price of the sweets to include
-     * @param maxPrice the maximum price of the sweets to include
-     * @return a list of sweets within the given price range
+     * @param minCocoa the minimum cocoa percentage
+     * @param maxCocoa the maximum cocoa percentage
+     * @return a list of sweets that are ChocolateBars within the specified cocoa range
      */
-    public List<Sweet> findSweetsByPriceRange(double minPrice, double maxPrice) {
+    public List<Sweet> findSweetsByChocolateRange(double minCocoa, double maxCocoa) {
         List<Sweet> result = new ArrayList<>();
         for (Sweet sweet : sweets) {
-            if (sweet.getPrice() >= minPrice && sweet.getPrice() <= maxPrice) {
-                result.add(sweet);
+            if (sweet instanceof ChocolateBar) {
+                ChocolateBar chocolate = (ChocolateBar) sweet;
+                if (chocolate.getCocoaPercentage() >= minCocoa && chocolate.getCocoaPercentage() <= maxCocoa) {
+                    result.add(chocolate);
+                }
             }
         }
         return result;

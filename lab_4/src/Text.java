@@ -14,12 +14,10 @@ public class Text {
      */
     public Text(String rawText) {
         this.sentences = new ArrayList<>();
-
-        // Split the text into sentences
-        String[] sentenceParts = rawText.split("\\.\\s*");
+        String[] sentenceParts = rawText.split("(?<=[.!?])\\s*");
         for (String part : sentenceParts) {
             if (!part.isBlank()) {
-                sentences.add(new Sentence(part.trim() + "."));
+                sentences.add(new Sentence(part.trim()));
             }
         }
     }

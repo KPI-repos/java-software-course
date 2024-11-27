@@ -37,13 +37,13 @@ public class Main {
             gift.sortByPrice();
             gift.displaySweets();
 
-            // Find sweets within a specified price range and display them
-            double minPrice = 0.5;
-            double maxPrice = 2.0;
-            System.out.printf("\nSweets with price between $%.2f and $%.2f:\n", minPrice, maxPrice);
-            var sweetsInRange = gift.findSweetsByPriceRange(minPrice, maxPrice);
+            // Find and display sweets that fall within the specified cocoa percentage range
+            double minCocoa = 30;
+            double maxCocoa = 80;
+            System.out.printf("\nSweets with cocoa percentage between %.1f%% and %.1f%%:\n", minCocoa, maxCocoa);
+            var sweetsInRange = gift.findSweetsByChocolateRange(minCocoa, maxCocoa);
             if (sweetsInRange.isEmpty()) {
-                System.out.println("No sweets found in the specified price range.");
+                System.out.println("No sweets found in the specified cocoa range.");
             } else {
                 sweetsInRange.forEach(System.out::println);
             }
