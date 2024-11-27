@@ -122,8 +122,8 @@ In the method `main` set all sweets
 ```
 In the method `main` set min and max value and run the project
 ```java
- double minPrice = 0.5;
- double maxPrice = 2.0;
+ double minCocoa = 30;
+ double maxCocao = 80;
 ```
 
 ## Lab 6
